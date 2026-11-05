@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Natasha Chebet.">
+  <title>Contact | Natasha Chebet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Natasha Chebet<span>Curriculum Vitae</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Profile</a><a href="education.html">Education</a><a href="hobbies.html">Hobbies</a><a href="skills.html">Skills</a><a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="page-heading">
+      <p class="eyebrow">04 / SAY HELLO</p>
+      <h1>Let’s connect.</h1>
+      <p class="intro">Please use the contact details below to get in touch.</p>
+    </section>
+    <section class="content-section contact-card">
+      <div><p class="eyebrow">GET IN TOUCH</p><h2>Contact details</h2><p>Feel free to call or message me.</p></div>
+      <dl class="contact-details">
+        <div><dt>Phone</dt><dd><a href="tel:0705034815">0705034815</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:chebetnatasha67@gmail.com">chebetnatasha67@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/natasha/">@natasha</a></dd></div>
+      </dl>
+    </section>
+    <hr class="contact-divider">
+    <section class="contact-form-section" aria-labelledby="message-title">
+      <h2 id="message-title">Send a message</h2>
+      <form class="contact-form">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" name="Name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email address</label>
+          <input id="email" name="Email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="subject">Message subject</label>
+          <input id="subject" name="Subject" type="text" required>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" rows="6" required></textarea>
+        </div>
+        <label class="copy-option"><input name="emailCopy" type="checkbox"> Email me a copy</label>
+        <button type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© 2026 Natasha Chebet</span><a href="index.html">Back to Profile ↑</a></footer>
+  <script>
+    document.querySelector(".contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const params = new URLSearchParams();
+      params.set("subject", data.get("Subject"));
+      params.set("body", `Name: ${data.get("Name")}\nEmail: ${data.get("Email")}\n\n${data.get("Message")}`);
+      if (form.elements.emailCopy.checked) {
+        params.set("cc", data.get("Email"));
+      }
+      window.location.href = `mailto:chebetnatasha67@gmail.com?${params}`;
+    });
+  </script>
+</body>
+</html>
